@@ -47,7 +47,7 @@ struct ImageView: View {
     var body: some View {
         Image(imageView)
             .resizable()
-            .frame(width: 250, height: 400)
+            .frame(width: 300, height: 400)
             .shadow(color: .white, radius: 100)
     }
 }
