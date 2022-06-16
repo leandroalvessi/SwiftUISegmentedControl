@@ -13,12 +13,12 @@ struct ContentView: View {
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor : UIColor.black], for: .selected)
     }
     
-    @State private var selectSide: SideOfTheImage = .dark
+    @State private var selectSide: SideOfTheImage = .flamengo
     
     var body: some View {
         NavigationView {
             VStack {
-                Picker("Selecao de Imagem", selection: $selectSide) {
+                Picker("App Flamengo", selection: $selectSide) {
                     ForEach(SideOfTheImage.allCases, id: \.self) {
                         Text($0.rawValue)
                     }
@@ -30,7 +30,7 @@ struct ContentView: View {
                 ChosenImageView(selectSide: selectSide)
                 Spacer()
             }
-            .navigationTitle("Seleção de Imagem")
+            .navigationTitle("App Flamengo")
         }
     }
 }
@@ -53,9 +53,9 @@ struct ImageView: View {
 }
 
 enum SideOfTheImage: String, CaseIterable {
-    case light = "Light"
-    case grey = "Grey"
-    case dark = "Dark"
+    case crf = "CRF"
+    case flamengo = "Flamengo"
+    case urubu = "Urubu"
 }
 
 struct ChosenImageView: View {
@@ -63,11 +63,11 @@ struct ChosenImageView: View {
     
     var body: some View {
         switch selectSide {
-        case .light:
+        case .crf:
             ImageView(imageView: "CRF")
-        case .grey:
+        case .flamengo:
             ImageView(imageView: "Flamengo")
-        case .dark:
+        case .urubu:
             ImageView(imageView: "Urubu")
         }
     }
